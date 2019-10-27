@@ -25,4 +25,4 @@ worldbank %>%
   transition_time(year) +
   scale_x_continuous(labels = scales::comma)
 
-anim_save("assigment_1.gif", path = output_dir, animation = last_animation())
+anim_save(file_name, path = output_dir, animation = last_animation())

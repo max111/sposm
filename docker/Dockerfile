@@ -12,7 +12,7 @@
 
 # docker run -d -p 8787:8787 -e PASSWORD=??? --name sposm sposm_ide
 
-# Do not forget to set a passord, as depending on your configuration
+# Do not forget to set a password, as depending on your configuration
 # the container might be accessible in the network!
 
 # Access your new integrated development environment in your browser
@@ -65,8 +65,9 @@ RUN apt-get update \
 
 
 # Install some additional tex packages
-RUN tlmgr update --self
 RUN tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
+
+RUN tlmgr update --self
 
 RUN tlmgr install multirow xcolor colortbl wrapfig float tabu varwidth \
   threeparttable threeparttablex environ trimspaces ulem makecell endfloat \
@@ -79,7 +80,8 @@ RUN tlmgr install multirow xcolor colortbl wrapfig float tabu varwidth \
 RUN  R -e "install.packages(c('kableExtra', 'ExPanDaR', 'ggmap', 'tidyr', \
   'tufte', 'showtext', 'cowplot', 'DiagrammeR', 'leaflet', 'widgetframe', \
   'zipcode', 'shiny', 'shinyjs', 'grid', 'gridExtra', 'ggwordcloud', 'tm', \
-  'qrcode', 'wbstats', 'magick', 'gifski', 'gganimate', 'transformr', 'animation'), \
+  'qrcode', 'wbstats', 'magick', 'WDI', 'gganimate', 'directlabels', \
+  'transformr', 'png', 'gifski', 'animation'), \
   repos = c(CRAN = 'https://mran.microsoft.com/snapshot/2019-09-25'))"
 
 # Replacement repo as MRAN was flaky over the last days
